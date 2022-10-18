@@ -1,0 +1,35 @@
+
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1661846406471",
+    "Statement": [
+        {
+            "Sid": "Stmt1661846231112",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::keerthi-reddy-raw-batch6-tigeril",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:username": "keerthi.reddy@tigeranalytics.com"
+                }
+            }
+        },
+        {
+            "Sid": "Stmt1661846373812",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::keerthi-reddy-raw-batch6-tigeril/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:username": "keerthi.reddy@tigeranalytics.com"
+                }
+            }
+        }
+    ]
+}
